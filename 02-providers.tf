@@ -28,6 +28,7 @@ terraform {
   backend "local" {
     path = "/container_shared/tfstate/schema-explorer.tfstate"
   }
+}
 
 provider "linode" {
   token = var.LINODE_API_KEY
