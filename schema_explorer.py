@@ -1,7 +1,9 @@
 # pipe the output of terraform providers schema -json to this code
 import json
 import sys  
+
 schema=json.load(sys.stdin)
+
 def print_block(block,indent=0):
     print(indent)
     indent_str=' '*indent
@@ -11,10 +13,10 @@ def print_block(block,indent=0):
         for block_name,block in block['block']['block_types'].items():
             print(f"{indent_str}block: {block_name}")
             print_block(block,indent+2)
-print(type(schema))
-print(schema.keys())
+# print(type(schema))
+# print(schema.keys())
 ps=schema['provider_schemas']
-print(type(ps))
+# print(type(ps))
 print(ps.keys())
 l=schema['provider_schemas']['registry.terraform.io/linode/linode']
 print(l.keys())
@@ -69,7 +71,7 @@ for key in l['resource_schemas'][r_target]['block']['attributes'].keys():
     computed=o.get('computed',False)
     required=o.get('required',False)
     optional=o.get('optional',False)
-    # print(required,optional,computed)
+    print(required,optional,computed)
     if computed==False:
         if required and not optional:
             print_string+=' Pure Input'
