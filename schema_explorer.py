@@ -24,7 +24,7 @@ def limit_depth(data, max_depth, current_depth=0):
     elif isinstance(data, list):
         return [limit_depth(item, max_depth, current_depth + 1) for item in data]
     else:
-        print('limit_depth unexpected type',type(data))
+        print('limit_depth unexpected type',type(data),data)
     return data
 
 def trim_keys(data, remove_keys_list):
