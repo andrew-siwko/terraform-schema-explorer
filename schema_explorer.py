@@ -35,7 +35,7 @@ def trim_keys(data, remove_keys_list):
     return data
 
 ps=schema['provider_schemas']
-print('ps',json.dumps(limit_depth(ps,2),indent=2))
+# print('ps',json.dumps(limit_depth(ps,2),indent=2))
 fv=schema['format_version']
 # don't bother to print this, it's always 1.0
 # print('fv',json.dumps(limit_depth(fv,2),indent=2))
