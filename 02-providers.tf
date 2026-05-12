@@ -9,6 +9,9 @@ terraform {
     digitalocean = {
       source  = "digitalocean/digitalocean"
     }
+    equinix = {
+      source = "equinix/equinix"
+    }
     google = {
       source  = "hashicorp/google"
     }
@@ -20,6 +23,9 @@ terraform {
     }
     oci = {
       source  = "oracle/oci"
+    }
+    proxmox = {
+      source = "bpg/proxmox"
     }
     time = {
       source = "hashicorp/time"
