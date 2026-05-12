@@ -15,7 +15,21 @@ def print_block(block,indent=0):
             print_block(block,indent+2)
 # print(type(schema))
 # print(schema.keys())
+def limit_depth(data, max_depth, current_depth=0):
+    if current_depth > max_depth:
+        return "..."  
+    
+    if isinstance(data, dict):
+        return {k: limit_depth(v, max_depth, current_depth + 1) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [limit_depth(item, max_depth, current_depth + 1) for item in data]
+    return data
+
 ps=schema['provider_schemas']
+print(json.dumps(limit_depth(ps,2),indent=2))
+fv=schema['format_version']
+print(json.dumps(limit_depth(fv,2),indent=2))
+
 # print(type(ps))
 print(ps.keys())
 l=schema['provider_schemas']['registry.terraform.io/linode/linode']
