@@ -30,8 +30,6 @@ def trim_keys(data, remove_keys_list):
         return {k: trim_keys(v, remove_keys_list) for k, v in data.items() if k not in remove_keys_list}
     elif isinstance(data, list):
         return [trim_keys(item, remove_keys_list) for item in data]
-    else:
-        print('trim_keys unexpected type',type(data))
     return data
 
 ps=schema['provider_schemas']
