@@ -28,8 +28,12 @@ def limit_depth(data, max_depth, current_depth=0):
 ps=schema['provider_schemas']
 print('ps',json.dumps(limit_depth(ps,2),indent=2))
 fv=schema['format_version']
-print('fv',json.dumps(limit_depth(fv,2),indent=2))
+# don't bother to print this, it's always 1.0
+# print('fv',json.dumps(limit_depth(fv,2),indent=2))
 
+for provider in ps:
+    print(provider)
+    print('ps',json.dumps(limit_depth(ps[provider],2),indent=2))
 # print(type(ps))
 print(ps.keys())
 l=schema['provider_schemas']['registry.terraform.io/linode/linode']
@@ -73,37 +77,39 @@ ds=['linode_account', 'linode_account_availabilities', 'linode_account_availabil
 r_target='linode_instance'
 d_target='linode_instance_types'
 
-import pprint
+# import pprint
 
-print()
-print(l['resource_schemas'][r_target].keys())
-pprint.pprint(l['resource_schemas'][r_target]['version'])
-print(l['resource_schemas'][r_target]['block'].keys())
-for key in l['resource_schemas'][r_target]['block']['attributes'].keys():
-    print_string=f"***  {key}:"
-    o=l['resource_schemas'][r_target]['block']['attributes'][key]
-    computed=o.get('computed',False)
-    required=o.get('required',False)
-    optional=o.get('optional',False)
-    print(required,optional,computed)
-    if computed==False:
-        if required and not optional:
-            print_string+=' Pure Input'
-        elif  not required and optional:
-            print_string+=' Optional Input'
-        else:
-            print_string+=' UNDEFINED'
-    else:
-        if not required and not optional:
-            print_string+=' Pure Output'
-        elif not required and optional:
-            print_string+=' Mixed Input/Output'
-        else:
-            print_string+=' UNDEFINED'
+# print()
+# print(l['resource_schemas'][r_target].keys())
+# pprint.pprint(l['resource_schemas'][r_target]['version'])
+# print(l['resource_schemas'][r_target]['block'].keys())
+# for key in l['resource_schemas'][r_target]['block']['attributes'].keys():
+#     print_string=f"***  {key}:"
+#     o=l['resource_schemas'][r_target]['block']['attributes'][key]
+#     computed=o.get('computed',False)
+#     required=o.get('required',False)
+#     optional=o.get('optional',False)
+#     print(required,optional,computed)
+#     if computed==False:
+#         if required and not optional:
+#             print_string+=' Pure Input'
+#         elif  not required and optional:
+#             print_string+=' Optional Input'
+#         else:
+#             print_string+=' UNDEFINED'
+#     else:
+#         if not required and not optional:
+#             print_string+=' Pure Output'
+#         elif not required and optional:
+#             print_string+=' Mixed Input/Output'
+#         else:
+#             print_string+=' UNDEFINED'
 
-    # pprint.pprint({x:o[x] for x in o if 'description' not in x})
-    print_string+=f"[type: {o['type']}]"
-    print(print_string)
+#     # pprint.pprint({x:o[x] for x in o if 'description' not in x})
+#     print_string+=f"[type: {o['type']}]"
+#     print(print_string)
+
+
 # print()
 # print(l['data_source_schemas'][d_target].keys())
 # pprint.pprint(l['data_source_schemas'][d_target]['version'])
