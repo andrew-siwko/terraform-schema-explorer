@@ -40,7 +40,7 @@ fv=schema['format_version']
 
 for provider in ps:
     print(provider)
-    print('ps',json.dumps(trim_keys(limit_depth(ps[provider],3),['version']),indent=2))
+    print('ps',json.dumps(trim_keys(limit_depth(ps[provider],3),['version','description','description_kind']),indent=2))
 # print(type(ps))
 # print(ps.keys())
 # l=schema['provider_schemas']['registry.terraform.io/linode/linode']
