@@ -26,9 +26,9 @@ def limit_depth(data, max_depth, current_depth=0):
     return data
 
 ps=schema['provider_schemas']
-print(json.dumps(limit_depth(ps,2),indent=2))
+print('ps',json.dumps(limit_depth(ps,2),indent=2))
 fv=schema['format_version']
-print(json.dumps(limit_depth(fv,2),indent=2))
+print('fv',json.dumps(limit_depth(fv,2),indent=2))
 
 # print(type(ps))
 print(ps.keys())
