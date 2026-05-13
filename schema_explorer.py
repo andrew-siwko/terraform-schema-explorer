@@ -18,7 +18,6 @@ def print_block(block,indent=0):
 def limit_depth(data, max_depth, current_depth=0):
     if current_depth > max_depth:
         return "..."  
-    
     if isinstance(data, dict):
         return {k: limit_depth(v, max_depth, current_depth + 1) for k, v in data.items()}
     elif isinstance(data, list):
@@ -32,12 +31,28 @@ def trim_keys(data, remove_keys_list):
         return [trim_keys(item, remove_keys_list) for item in data]
     return data
 
+def scan_for_keys(data, target_keys, found=None):
+    if found is None:
+        found = {}
+    if isinstance(data, dict):
+        for k, v in data.items():
+            if k in target_keys:
+                found[k] = v
+            scan_for_keys(v, target_keys, found)
+    elif isinstance(data, list):
+        for item in data:
+            scan_for_keys(item, target_keys, found)
+
+    return found
+
+
 ps=schema['provider_schemas']
 # print('ps',json.dumps(limit_depth(ps,2),indent=2))
 fv=schema['format_version']
 # don't bother to print this, it's always 1.0
 # print('fv',json.dumps(limit_depth(fv,2),indent=2))
-
+print('block_types',json.dumps(scan_for_keys(ps,['block_types']),indent=2))
+print('deprecated',json.dumps(scan_for_keys(ps,['deprecated']),indent=2))
 for provider in ps:
     print(provider)
     print(ps[provider].keys())
