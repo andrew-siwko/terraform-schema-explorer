@@ -52,8 +52,9 @@ fv=schema['format_version']
 # print('fv',json.dumps(limit_depth(fv,2),indent=2))
 # print('block_types')
 # json.dumps(scan_for_keys(ps,['block_types']),indent=2)
+# deprecated is not as simple as it looks.  deprecated is an attribute but also a variable name.
 print('deprecated')
-json.dumps(scan_for_keys(ps,['deprecated']),indent=2)
+scan_for_keys(ps,['deprecated'])
 # for provider in ps:
 #     print(provider)
 #     print(ps[provider].keys())
