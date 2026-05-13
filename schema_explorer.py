@@ -36,6 +36,8 @@ def scan_for_keys(data, target_keys):
         for k, v in data.items():
             if k in target_keys:
                 print(json.dumps(v),indent=2)
+            else:
+                scan_for_keys(v, target_keys)
     elif isinstance(data, list):
         for item in data:
             scan_for_keys(item, target_keys)
