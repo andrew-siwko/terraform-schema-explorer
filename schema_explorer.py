@@ -46,6 +46,9 @@ def scan_for_keys(data, target_keys):
 
 
 ps=schema['provider_schemas']
+print('========================== mirror =========================')
+print(json.dumps(ps['registry.terraform.io/andrew/property-mirror'], indent=2))
+print('========================== mirror =========================')
 print('ps',json.dumps(limit_depth(ps,2),indent=2))
 fv=schema['format_version']
 # don't bother to print this, it's always 1.0
