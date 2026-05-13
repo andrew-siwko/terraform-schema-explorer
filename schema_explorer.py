@@ -50,8 +50,8 @@ ps=schema['provider_schemas']
 fv=schema['format_version']
 # don't bother to print this, it's always 1.0
 # print('fv',json.dumps(limit_depth(fv,2),indent=2))
-print('block_types')
-json.dumps(scan_for_keys(ps,['block_types']),indent=2)
+# print('block_types')
+# json.dumps(scan_for_keys(ps,['block_types']),indent=2)
 print('deprecated')
 json.dumps(scan_for_keys(ps,['deprecated']),indent=2)
 # for provider in ps:
