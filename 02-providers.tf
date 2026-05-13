@@ -21,6 +21,9 @@ terraform {
     linode = {
       source = "linode/linode"
     }
+    mirror = {
+      source = "andrew/property-mirror"
+    }
     oci = {
       source  = "oracle/oci"
     }
