@@ -41,8 +41,7 @@ terraform {
       source = "eran132/vbox"
     }
     virtualbox-aslafy-z = {
-      source = "aslafy-z/virtualbox"
-      version = "0.1.0"
+      source = "aslafy-z/vboxweb"
     }
   }
   backend "local" {
