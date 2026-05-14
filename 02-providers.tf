@@ -33,10 +33,10 @@ terraform {
     time = {
       source = "hashicorp/time"
     }
-    virtualbox_terra_farm = {
+    virtualbox-terra-farm = {
       source = "terra-farm/virtualbox"
     }
-    virtualbox_eran_132 = {
+    virtualbox-eran-132 = {
       source = "eran132/vbox"
     }
   }
