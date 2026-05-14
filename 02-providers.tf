@@ -33,6 +33,12 @@ terraform {
     time = {
       source = "hashicorp/time"
     }
+    virtualbox_terra_farm = {
+      source = 'terra-farm/virtualbox'
+    }
+    virtualbox_eran_132 = {
+      source = 'eran132/vbox
+    }
   }
   backend "local" {
     path = "/container_shared/tfstate/schema-explorer.tfstate"
@@ -42,4 +48,6 @@ terraform {
 provider "linode" {
   token = var.LINODE_API_KEY
 }
+
+
 
