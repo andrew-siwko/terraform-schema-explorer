@@ -34,10 +34,10 @@ terraform {
       source = "hashicorp/time"
     }
     virtualbox_terra_farm = {
-      source = 'terra-farm/virtualbox'
+      source = "terra-farm/virtualbox"
     }
     virtualbox_eran_132 = {
-      source = 'eran132/vbox
+      source = "eran132/vbox"
     }
   }
   backend "local" {
