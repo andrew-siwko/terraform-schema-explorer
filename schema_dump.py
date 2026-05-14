@@ -1,4 +1,6 @@
 import json
 import sys  
 from schema_explorer import limit_depth, trim_keys, scan_for_keys
-print(json.dumps(trim_keys(json.load(sys.stdin),['version','description','description_kind']),indent=2))
+schema_input=json.load(sys.stdin)
+trimmed_schema=trim_keys(schema_input,['version','description','description_kind'])
+print(json.dumps(trimmed_schema,indent=2))
