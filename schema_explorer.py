@@ -56,8 +56,8 @@ fv=schema['format_version']
 # print('block_types')
 # json.dumps(scan_for_keys(ps,['block_types']),indent=2)
 # deprecated is not as simple as it looks.  deprecated is an attribute but also a variable name.
-print('deprecated')
-scan_for_keys(ps,['deprecated'])
+# print('deprecated')
+# scan_for_keys(ps,['deprecated'])
 # for provider in ps:
 #     print(provider)
 #     print(ps[provider].keys())
@@ -76,7 +76,7 @@ scan_for_keys(ps,['deprecated'])
 # print_block(schema['provider_schemas']['registry.terraform.io/linode/linode']['resource_schemas'])
 # print_block(schema['provider_schemas']['registry.terraform.io/linode/linode']['data_source_schemas'])
 
-
+# this started out as a dump of linode resources.
 
 rs=['linode_account_settings', 'linode_consumer_image_share_group_token', 'linode_database_access_controls', 'linode_database_mysql_v2', 
     'linode_database_postgresql_v2', 'linode_domain', 'linode_domain_record', 'linode_firewall', 'linode_firewall_device', 'linode_firewall_settings', 
