@@ -40,6 +40,9 @@ terraform {
     virtualbox-eran-132 = {
       source = "eran132/vbox"
     }
+    virtualbox-aslafy-zero = {
+      source = "aslafy-z/virtualbox"
+    }
   }
   backend "local" {
     path = "/container_shared/tfstate/schema-explorer.tfstate"
