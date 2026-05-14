@@ -35,6 +35,7 @@ terraform {
     }
     virtualbox-terra-farm = {
       source = "terra-farm/virtualbox"
+      version = "0.2.2-alpha.1"
     }
     virtualbox-eran-132 = {
       source = "eran132/vbox"
