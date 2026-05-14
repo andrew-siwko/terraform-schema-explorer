@@ -40,8 +40,9 @@ terraform {
     virtualbox-eran-132 = {
       source = "eran132/vbox"
     }
-    virtualbox-aslafy-zero = {
+    virtualbox-aslafy-z = {
       source = "aslafy-z/virtualbox"
+      version = "0.1.0"
     }
   }
   backend "local" {
@@ -51,6 +52,13 @@ terraform {
 
 provider "linode" {
   token = var.LINODE_API_KEY
+}
+
+provider "virtualbox-aslafy-z" {
+  # this is a private network address.
+  endpoint = "http://daddy.siwko.org:18083/" 
+  username = ""
+  password = ""
 }
 
 
