@@ -22,7 +22,7 @@ terraform {
       source = "linode/linode"
     }
     mirror = {
-      source = "andrew/property-mirror"
+      source = "registry.terraform.io/andrew/property-mirror"
     }
     oci = {
       source  = "oracle/oci"
